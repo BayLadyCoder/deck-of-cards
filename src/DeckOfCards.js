@@ -24,32 +24,40 @@ export class DeckOfCards extends Component {
 
   async getRandomCard() {
     const deck_id = this.state.deck_id;
-    const url = `https://deckofcardsapi.com/api/deck/${deck_id}/draw/`;
-    const res = await axios.get(url);
-    const data = res.data;
-    // console.log(data);
-    const value = data.cards[0].value;
-    const suit = data.cards[0].suit;
-    const card_name = `${value} ${suit}`;
-    const card_img = data.cards[0].image;
-    const remaining = data.remaining;
-    let cards = [];
-    cards.push({
-      card_name: card_name,
-      card_img: card_img
-    });
 
-    this.setState({
-      showed_cards: [...this.state.showed_cards, ...cards],
-      remaining: remaining
-    });
+    if (this.state.remaining === 0) {
+      alert("out of cards");
+      window.location.reload();
+    } else {
+      const url = `https://deckofcardsapi.com/api/deck/${deck_id}/draw/`;
+      const res = await axios.get(url);
+      const data = res.data;
+      // console.log(data);
+      const value = data.cards[0].value;
+      const suit = data.cards[0].suit;
+      const card_name = `${value} ${suit}`;
+      const card_img = data.cards[0].image;
+      const remaining = data.remaining;
+      let cards = [];
+
+      cards.push({
+        card_name: card_name,
+        card_img: card_img
+      });
+
+      this.setState({
+        showed_cards: [...this.state.showed_cards, ...cards],
+        remaining: remaining
+      });
+    }
   }
 
   render() {
     const cards = this.state.showed_cards.map(c => (
       <Card img={c.card_img} name={c.card_name} />
     ));
-    // console.log("State", this.state);
+    console.log(this.state.remaining);
+
     return (
       <div className="DeckOfCards">
         <h1>Deck Of Cards</h1>
