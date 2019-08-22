@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/deck-of-cards/static/css/main.ee2449d8.chunk.css",
+    "main.js": "/deck-of-cards/static/js/main.a4603d2a.chunk.js",
+    "main.js.map": "/deck-of-cards/static/js/main.a4603d2a.chunk.js.map",
+    "runtime~main.js": "/deck-of-cards/static/js/runtime~main.467f6679.js",
+    "runtime~main.js.map": "/deck-of-cards/static/js/runtime~main.467f6679.js.map",
+    "static/js/2.1badf9e5.chunk.js": "/deck-of-cards/static/js/2.1badf9e5.chunk.js",
+    "static/js/2.1badf9e5.chunk.js.map": "/deck-of-cards/static/js/2.1badf9e5.chunk.js.map",
+    "index.html": "/deck-of-cards/index.html",
+    "precache-manifest.8e6da236c868b1baa7de4e8db25ade39.js": "/deck-of-cards/precache-manifest.8e6da236c868b1baa7de4e8db25ade39.js",
+    "service-worker.js": "/deck-of-cards/service-worker.js",
+    "static/css/main.ee2449d8.chunk.css.map": "/deck-of-cards/static/css/main.ee2449d8.chunk.css.map",
+    "static/media/logo.svg": "/deck-of-cards/static/media/logo.5d5d9eef.svg"
+  }
+}
