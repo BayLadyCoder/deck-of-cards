@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./DeckOfCards.css";
 import axios from "axios";
 
 export class DeckOfCards extends Component {
@@ -7,8 +8,10 @@ export class DeckOfCards extends Component {
     this.state = {
       deck_id: "",
       current_card: "",
+      card_img: "",
       remaining: 52
     };
+    this.getRandomCard = this.getRandomCard.bind(this);
   }
 
   async componentDidMount() {
@@ -20,17 +23,29 @@ export class DeckOfCards extends Component {
   }
 
   async getRandomCard() {
-    const url = "";
+    const deck_id = this.state.deck_id;
+    const url = `https://deckofcardsapi.com/api/deck/${deck_id}/draw/`;
     const res = await axios.get(url);
     const data = res.data;
     console.log(data);
+    const value = data.cards[0].value;
+    const suit = data.cards[0].suit;
+    const current_card = `${value} ${suit}`;
+    const card_img = data.cards[0].image;
+    const remaining = data.remaining;
+    this.setState({
+      current_card: current_card,
+      card_img: card_img,
+      remaining: remaining
+    });
   }
 
   render() {
     return (
-      <div>
+      <div className="DeckOfCards">
         <h1>Deck Of Cards</h1>
-        <h2>{this.state.deck_id}</h2>
+        <button onClick={this.getRandomCard}>Click Me</button>
+        <img src={this.state.card_img} alt={this.state.current_card} />
       </div>
     );
   }
